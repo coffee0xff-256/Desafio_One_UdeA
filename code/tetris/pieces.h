@@ -1,64 +1,75 @@
 #ifndef PIECES_H
 #define PIECES_H
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
+unsigned char pieza_random(){
+    srand(0);
 
-// creare mis tetrimonios
+    int opcion = rand() % 7;
 
-// tetrimonio I o linea larga
+    switch (opcion) {
+    case 0:
+        unsigned char I[4][4] = {
+            {0,0,0,0},
+            {1,1,1,1},
+            {0,0,0,0},
+            {0,0,0,0}
+        };
+        break;
+    case 1:
+        unsigned char O[2][2] = {
+            {1,1},
+            {1,1}
+        };
+        break;
+    case 2:
+        unsigned char T[3][3] = {
+            {0,0,0},
+            {1,1,1},
+            {0,1,0}
+        };
 
-unsigned char I[4][4] = {
-    {0,0,0,0},
-    {1,1,1,1},
-    {0,0,0,0},
-    {0,0,0,0}
-};
+        break;
+    case 3:
+        unsigned char S[3][3]={
+            {0,0,0},
+            {0,1,1},
+            {1,1,0}
+        };
 
-// tetrimonio cuadrado O
+        break;
+    case 4:
+        unsigned char Z[3][3] = {
+            {0,0,0},
+            {1,1,0},
+            {0,1,1}
+        };
+        break;
+    case 5:
+        unsigned char J[3][3] = {
+            {0,1,0},
+            {0,1,0},
+            {1,1,0}
+        };
 
-unsigned char O[2][2] = {
-    {1,1},
-    {1,1}
-};
+        break;
+    case 6:
+        unsigned char L[3][3] = {
+            {0,1,0},
+            {0,1,0},
+            {0,1,1}
+        };
 
-// tetrimonio T
+        break;
 
-unsigned char T[3][3] = {
-    {0,0,0},
-    {1,1,1},
-    {0,1,0}
-};
+    }
 
-// tetrimonio en forma de S
 
-unsigned char S[3][3]={
-    {0,0,0},
-    {0,1,1},
-    {1,1,0}
-};
 
-// tetrimonio en forma de Z
 
-unsigned char Z[3][3] = {
-    {0,0,0},
-    {1,1,0},
-    {0,1,1}
-};
-
-// tetrimonio en forma de J
-
-unsigned char J[3][3] = {
-    {0,1,0},
-    {0,1,0},
-    {1,1,0}
-};
-
-// tetrimonio en forma de L
-
-unsigned char L[3][3] = {
-    {0,1,0},
-    {0,1,0},
-    {0,1,1}
-};
+}
 #endif // PIECES_H
 
