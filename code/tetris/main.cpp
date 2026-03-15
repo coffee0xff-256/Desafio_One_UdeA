@@ -4,6 +4,7 @@
 #include <indexation.h>
 #include <cstdlib>
 #include <ctime>
+#include <movements.h>
 void imprimir_tablero(unsigned char **tablero,int alto,int ancho)
 { int bytes = ancho / 8;
     for(int i = 0; i < alto; i++){
@@ -33,16 +34,27 @@ int main()
     // un errorcito mio, las coordenadas tambien deben de estar fuera de la funcion que cree
     int x = (ancho/2)-1;
     int y = 0;
+    //opcines para los movimientos
+    char movimiento  = 0;
+    unsigned char (*pieza)[4] = pieza_random();
     tablero_tetris = spawn(tablero_tetris,ancho);
     imprimir_tablero(tablero_tetris,alto,ancho);
 
     while(playing == true){
     //aqui ira la logica de nuestro juego los desplazamientos y todo ese grupo de cosas
-            unsigned char (*pieza)[4] = pieza_random();
 
-
-
-    playing = false;
+     draw_tetrimonio(tablero_tetris,pieza,x,y);
+     cin>>movimiento;
+     if(movimiento == 68 || movimiento == 100){
+         erase_piece(tablero_tetris,pieza,x,y);
+         x++;
+         draw_tetrimonio(tablero_tetris,pieza,x,y);
+     }
+     else if(movimiento == 73 || movimiento == 105){
+         erase_piece(tablero_tetris,pieza,x,y);
+         x--;
+         draw_tetrimonio(tablero_tetris,pieza,x,y);
+     }
     }
 
     // limpio memoria dinamica
