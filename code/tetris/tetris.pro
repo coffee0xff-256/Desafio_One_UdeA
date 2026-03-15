@@ -10,6 +10,7 @@ HEADERS += \
     board.h \
     clear_line.h \
     colitions.h \
+    game_over.h \
     indexation.h \
     movements.h \
     pieces.h \

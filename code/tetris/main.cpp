@@ -8,6 +8,8 @@
 #include <rotation.h>
 #include <colitions.h>
 #include <clear_line.h>
+#include <game_over.h>
+
 void imprimir_tablero(unsigned char **tablero,int alto,int ancho)
 { int bytes = ancho / 8;
     for(int i = 0; i < alto; i++){
@@ -77,6 +79,9 @@ int main()
              pieza = pieza_random();
              x = (ancho/2)-1;
              y = 0;
+             if(!puede_spawnear(tablero_tetris,pieza,x,y))
+             { cout << "GAME OVER" << endl; playing = false; }
+             else { draw_tetrimonio(tablero_tetris,pieza,x,y); }
              draw_tetrimonio(tablero_tetris,pieza,x,y);
          }
          imprimir_tablero(tablero_tetris,alto,ancho);
