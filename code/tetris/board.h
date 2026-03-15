@@ -4,8 +4,8 @@
 using namespace std;
 // nuestro tablerito espera 2 variables el alto y el ancho
 
-unsigned char **tablero(int alto, int bytes_por_filas){
-    bytes_por_filas /=8; // pongo mis bytes que necesito
+unsigned char **tablero(int alto, int ancho_bits){
+   int bytes_por_filas = ancho_bits/8;
   unsigned char **matriz = new unsigned char*[alto];  // reservo filas puntero que apunta en memoria dinamica a filas
     for(int i = 0; i < alto; i++)
     {
