@@ -39,21 +39,24 @@ int main()
     unsigned char (*pieza)[4] = pieza_random();
     tablero_tetris = spawn(tablero_tetris,ancho);
     imprimir_tablero(tablero_tetris,alto,ancho);
+    draw_tetrimonio(tablero_tetris,pieza,x,y);
 
     while(playing == true){
     //aqui ira la logica de nuestro juego los desplazamientos y todo ese grupo de cosas
 
-     draw_tetrimonio(tablero_tetris,pieza,x,y);
+
      cin>>movimiento;
      if(movimiento == 68 || movimiento == 100){
          erase_piece(tablero_tetris,pieza,x,y);
          x++;
          draw_tetrimonio(tablero_tetris,pieza,x,y);
+        imprimir_tablero(tablero_tetris,alto,ancho);
      }
      else if(movimiento == 73 || movimiento == 105){
          erase_piece(tablero_tetris,pieza,x,y);
          x--;
          draw_tetrimonio(tablero_tetris,pieza,x,y);
+         imprimir_tablero(tablero_tetris,alto,ancho);
      }
     }
 
