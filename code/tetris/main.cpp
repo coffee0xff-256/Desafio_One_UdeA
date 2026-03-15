@@ -61,20 +61,24 @@ int main()
          draw_tetrimonio(tablero_tetris,pieza,x,y);
          imprimir_tablero(tablero_tetris,alto,ancho);
      }
-     else if(movimiento ==65 || movimiento == 97)
+         else if(movimiento == 65 || movimiento == 97)
      {
          erase_piece(tablero_tetris,pieza,x,y);
-
-         if(puede_bajar(tablero_tetris,pieza,x,y,alto,ancho))
+         if(puede_bajar(tablero_tetris,pieza,x,y,alto))
          {
              y++;
+             draw_tetrimonio(tablero_tetris,pieza,x,y);
          }
          else
          {
-             cout << "pieza fijada" << endl;
+             // la pieza queda fija
+             draw_tetrimonio(tablero_tetris,pieza,x,y);
+             // nueva pieza
+             pieza = pieza_random();
+             x = (ancho/2)-1;
+             y = 0;
+             draw_tetrimonio(tablero_tetris,pieza,x,y);
          }
-
-         draw_tetrimonio(tablero_tetris,pieza,x,y);
          imprimir_tablero(tablero_tetris,alto,ancho);
      }
 
