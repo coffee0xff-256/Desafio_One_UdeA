@@ -8,6 +8,7 @@ SOURCES += \
 
 HEADERS += \
     board.h \
+    colitions.h \
     indexation.h \
     movements.h \
     pieces.h \

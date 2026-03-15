@@ -6,6 +6,7 @@
 #include <ctime>
 #include <movements.h>
 #include <rotation.h>
+#include <colitions.h>
 void imprimir_tablero(unsigned char **tablero,int alto,int ancho)
 { int bytes = ancho / 8;
     for(int i = 0; i < alto; i++){
@@ -60,12 +61,23 @@ int main()
          draw_tetrimonio(tablero_tetris,pieza,x,y);
          imprimir_tablero(tablero_tetris,alto,ancho);
      }
-     else if(movimiento ==65 || movimiento == 97){
+     else if(movimiento ==65 || movimiento == 97)
+     {
          erase_piece(tablero_tetris,pieza,x,y);
-         y++;
+
+         if(puede_bajar(tablero_tetris,pieza,x,y,alto,ancho))
+         {
+             y++;
+         }
+         else
+         {
+             cout << "pieza fijada" << endl;
+         }
+
          draw_tetrimonio(tablero_tetris,pieza,x,y);
          imprimir_tablero(tablero_tetris,alto,ancho);
      }
+
      else if(movimiento == 82 || movimiento == 114){
          erase_piece(tablero_tetris,pieza,x,y);
          rotar(pieza);
