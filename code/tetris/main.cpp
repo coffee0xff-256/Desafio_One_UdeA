@@ -37,9 +37,10 @@ int main()
     //opcines para los movimientos
     char movimiento  = 0;
     unsigned char (*pieza)[4] = pieza_random();
-    tablero_tetris = spawn(tablero_tetris,ancho);
-    imprimir_tablero(tablero_tetris,alto,ancho);
+    //tablero_tetris = spawn(tablero_tetris,ancho);
     draw_tetrimonio(tablero_tetris,pieza,x,y);
+    imprimir_tablero(tablero_tetris,alto,ancho);
+
 
     while(playing == true){
     //aqui ira la logica de nuestro juego los desplazamientos y todo ese grupo de cosas
@@ -55,6 +56,12 @@ int main()
      else if(movimiento == 73 || movimiento == 105){
          erase_piece(tablero_tetris,pieza,x,y);
          x--;
+         draw_tetrimonio(tablero_tetris,pieza,x,y);
+         imprimir_tablero(tablero_tetris,alto,ancho);
+     }
+     else if(movimiento ==65 || movimiento == 97){
+         erase_piece(tablero_tetris,pieza,x,y);
+         y++;
          draw_tetrimonio(tablero_tetris,pieza,x,y);
          imprimir_tablero(tablero_tetris,alto,ancho);
      }
