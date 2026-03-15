@@ -5,71 +5,74 @@
 #include <ctime>
 
 using namespace std;
-unsigned char pieza_random(){
-    srand(0);
 
-    int opcion = rand() % 7;
+// tetrimonio I
+unsigned char I[4][4] = {
+    {0,0,0,0},
+    {1,1,1,1},
+    {0,0,0,0},
+    {0,0,0,0}
+};
 
-    switch (opcion) {
-    case 0:
-        unsigned char I[4][4] = {
-            {0,0,0,0},
-            {1,1,1,1},
-            {0,0,0,0},
-            {0,0,0,0}
-        };
-        break;
-    case 1:
-        unsigned char O[2][2] = {
-            {1,1},
-            {1,1}
-        };
-        break;
-    case 2:
-        unsigned char T[3][3] = {
-            {0,0,0},
-            {1,1,1},
-            {0,1,0}
-        };
+// tetrimonio O
+unsigned char O[4][4] = {
+    {1,1,0,0},
+    {1,1,0,0},
+    {0,0,0,0},
+    {0,0,0,0}
+};
 
-        break;
-    case 3:
-        unsigned char S[3][3]={
-            {0,0,0},
-            {0,1,1},
-            {1,1,0}
-        };
+// tetrimonio T
+unsigned char T[4][4] = {
+    {0,0,0,0},
+    {1,1,1,0},
+    {0,1,0,0},
+    {0,0,0,0}
+};
 
-        break;
-    case 4:
-        unsigned char Z[3][3] = {
-            {0,0,0},
-            {1,1,0},
-            {0,1,1}
-        };
-        break;
-    case 5:
-        unsigned char J[3][3] = {
-            {0,1,0},
-            {0,1,0},
-            {1,1,0}
-        };
+// tetrimonio S
+unsigned char S[4][4] = {
+    {0,0,0,0},
+    {0,1,1,0},
+    {1,1,0,0},
+    {0,0,0,0}
+};
 
-        break;
-    case 6:
-        unsigned char L[3][3] = {
-            {0,1,0},
-            {0,1,0},
-            {0,1,1}
-        };
+// tetrimonio Z
+unsigned char Z[4][4] = {
+    {0,0,0,0},
+    {1,1,0,0},
+    {0,1,1,0},
+    {0,0,0,0}
+};
 
-        break;
+// tetrimonio J
+unsigned char J[4][4] = {
+    {0,1,0,0},
+    {0,1,0,0},
+    {1,1,0,0},
+    {0,0,0,0}
+};
 
-    }
+// tetrimonio L
+unsigned char L[4][4] = {
+    {0,1,0,0},
+    {0,1,0,0},
+    {0,1,1,0},
+    {0,0,0,0}
+};
 
+unsigned char (*pieza_random())[4]
+{
+    int pieza = rand() % 7;
 
-
-
+    if(pieza == 0) return I;
+    if(pieza == 1) return O;
+    if(pieza == 2) return T;
+    if(pieza == 3) return S;
+    if(pieza == 4) return Z;
+    if(pieza == 5) return J;
+    return L;
 }
-#endif // PIECES_H
 
+#endif
