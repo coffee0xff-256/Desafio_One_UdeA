@@ -30,10 +30,18 @@ int main()
     //aqui creamos nuestro tablero
     unsigned char **tablero_tetris = tablero(alto,ancho);
 
-    while(playing == true){
-    //aqui ira la logica de nuestro juego los desplazamientos y todo ese grupo de cosas
+    // un errorcito mio, las coordenadas tambien deben de estar fuera de la funcion que cree
+    int x = (ancho/2)-1;
+    int y = 0;
     tablero_tetris = spawn(tablero_tetris,ancho);
     imprimir_tablero(tablero_tetris,alto,ancho);
+
+    while(playing == true){
+    //aqui ira la logica de nuestro juego los desplazamientos y todo ese grupo de cosas
+            unsigned char (*pieza)[4] = pieza_random();
+
+
+
     playing = false;
     }
 

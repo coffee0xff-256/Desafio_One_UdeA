@@ -9,5 +9,6 @@ SOURCES += \
 HEADERS += \
     board.h \
     indexation.h \
+    movements.h \
     pieces.h \
     rotation.h
