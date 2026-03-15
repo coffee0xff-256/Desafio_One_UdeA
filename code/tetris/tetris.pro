@@ -8,6 +8,7 @@ SOURCES += \
 
 HEADERS += \
     board.h \
+    clear_line.h \
     colitions.h \
     indexation.h \
     movements.h \

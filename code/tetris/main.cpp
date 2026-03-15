@@ -7,6 +7,7 @@
 #include <movements.h>
 #include <rotation.h>
 #include <colitions.h>
+#include <clear_line.h>
 void imprimir_tablero(unsigned char **tablero,int alto,int ancho)
 { int bytes = ancho / 8;
     for(int i = 0; i < alto; i++){
@@ -71,9 +72,8 @@ int main()
          }
          else
          {
-             // la pieza queda fija
              draw_tetrimonio(tablero_tetris,pieza,x,y);
-             // nueva pieza
+             clear_lines(tablero_tetris,alto,ancho);
              pieza = pieza_random();
              x = (ancho/2)-1;
              y = 0;
