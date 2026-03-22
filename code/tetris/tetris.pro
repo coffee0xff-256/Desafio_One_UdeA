@@ -15,3 +15,4 @@ HEADERS += \
     movements.h \
     pieces.h \
     rotation.h
+DISTFILES += music.mp3

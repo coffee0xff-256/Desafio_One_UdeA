@@ -23,9 +23,16 @@ using namespace std;
 
 int main()
 {
+    // para la musiquita profe
+    system("mpg123 music.mp3 > /dev/null 2>&1 &");
+    //-------------------------------------------------
+
     srand(time(0));
     bool playing = true;
     int alto = 0, ancho = 0;
+
+
+
     cout << "Welcome to my Tetris" << endl;
     cout << "Please put a number (ancho debe ser multiplo de 8):" << endl;
     cout << "Alto: ";
